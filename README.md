@@ -18,6 +18,7 @@ Three key datasets are provided:
 
 # Entity Relationship Diagram
 Please find below an entity relationship diagram (ERD) that illustrates the relationships between various entities.
+
 ![Entity Realationship Diagram](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/b930ecaa-ac99-40e0-9529-0093423bd452)
 
 # Case study Questions
