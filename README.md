@@ -18,8 +18,8 @@ Three key datasets are provided:
 
 # Entity Relationship Diagram
 Please find below an entity relationship diagram (ERD) that illustrates the relationships between various entities.
+![ERD](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/6eb0ab19-2235-4b1a-bb76-65edf3595539)
 
-![image](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/be84c44b-2d0a-4dba-ab34-18dd67c12e8a)
 
 # Case study Questions
 1.What is the total amount each customer spent at the restaurant?
