@@ -4,9 +4,9 @@ This project is derived from Danny Ma's #8WeekSQLChallenge.
 # Introduction
 Danny Ma, a lover of Japanese food, took a daring step in early 2021 by opening a charming restaurant called Danny's Diner.
 The menu primarily features his top three favorite dishes: 
-1)Sushi 
-2)Surry
-3)Ramen 
+1) Sushi 
+2) Surry
+3) Ramen 
 
 # Problem Statement
 The restaurant is facing challenges and requires assistance in utilizing their collected data to improve their operations. Danny wants to understand customer behavior, expenditure, and preferences to enhance their experience. 
