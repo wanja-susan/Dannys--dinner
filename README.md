@@ -38,10 +38,10 @@ Please find below an entity relationship diagram (ERD) that illustrates the rela
 Softare used is MYSQL.
 
 # 1. What is the total amount each customer spent at the restaurant?
-. Sales and menu table are needed for this query hence the JOIN clause.
-. Use SUM aggregate function to get total amount spent
-. Use GROUP BY  to specify the rows based on customer id
-` with total_sales as
+- Sales and menu table are needed for this query hence the JOIN clause.
+- Use SUM aggregate function to get total amount spent
+- Use GROUP BY  to specify the rows based on customer id
+- ` with total_sales as
         (select s.customer_id, s.order_date, m.product_id,m.product_name,m.product_price
          from sales s
          inner join menu m
