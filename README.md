@@ -98,7 +98,8 @@ limit 1;`
 ![Q 4](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/09aa68c7-ae13-4291-985f-d57107c31145)
 
 # 5. Which item was the most popular for each customer?
-
+ - JOIN the "sales" table with the "menu" table based on the product ID. 
+ - Use HAVING clause to filters results to include only those combinations where the order count is equal to the maximum order count for that specific customer hence COUNT and MAX aggregate function. 
 - `select s.customer_id, m.product_name, count(*) AS order_count
 from sales s
 join menu m 
@@ -113,3 +114,5 @@ having count(*) = (
   ) t
   where t.customer_id = s.customer_id
 );`
+
+![Q 5](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/c8b6ea47-82de-432e-85c0-22b9190321d5)
