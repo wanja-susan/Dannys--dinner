@@ -36,3 +36,4 @@ Please find below an entity relationship diagram (ERD) that illustrates the rela
 
 # Solutions
 The solutions to the query questions can be found in the "solutions" file.
+
