@@ -59,6 +59,7 @@ Software used is MYSQL.
 from sales
 group by customer_id
 ; `
+
 ![Q 2](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/30062db1-27da-4b08-bf3c-a6f3de84bb28)
 
 # 3. What was the first item from the menu purchased by each customer?
