@@ -35,5 +35,22 @@ Please find below an entity relationship diagram (ERD) that illustrates the rela
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 # Solutions
-The solutions to the query questions can be found in the [solutions](Danny's dinner.sql) file
+Softare used is MYSQL.
+
+# 1. What is the total amount each customer spent at the restaurant?
+. Sales and menu table are needed for this query hence the JOIN clause.
+. Use SUM aggregate function to get total amount spent
+. Use GROUP BY  to specify the rows based on customer id
+` with total_sales as
+        (select s.customer_id, s.order_date, m.product_id,m.product_name,m.product_price
+         from sales s
+         inner join menu m
+         on s.product_id=m.product_id)
+           select customer_id, sum(product_price) as total_amount
+           from total_sales
+           group by customer_id;`
+           
+![Q 1](https://github.com/wanja-susan/Dannys--dinner/assets/130906675/6b7edd98-f459-4b04-a9d9-01db55397a79)
+
+           
 
