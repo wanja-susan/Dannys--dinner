@@ -35,5 +35,5 @@ Please find below an entity relationship diagram (ERD) that illustrates the rela
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 # Solutions
-The solutions to the query questions can be found in the "solutions" file.
+The solutions to the query questions can be found in the [solutions](Danny's dinner.sql) file
 
