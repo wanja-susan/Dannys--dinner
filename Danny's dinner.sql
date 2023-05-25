@@ -52,11 +52,17 @@ group by customer_id
 ; 
 
 -- first item from the menu purchased by each customer
-select s.customer_id, m.product_name
-from sales s
-inner join menu m
-on s.product_id=m.product_id
-where s.order_date=(select min(order_date) from sales);
+WITH ranked_item as (
+   Select s.customer_id, s.order_date ,m.product_name,
+    DENSE_RANK() OVER (PARTITION BY s.customer_id ORDER BY  s.order_date) AS ranked
+     From sales s
+     Join menu m
+        ON s.product_id = m.product_id
+		)
+Select customer_id, product_name
+From ranked_item
+Where ranked = '1'
+Group by customer_id, product_name;
 
 -- most purchased item on the menu and how many times was it purchased by all customers
 select count(s.product_id) as most_purchased,m.product_name
@@ -84,30 +90,36 @@ having count(*) = (
 );
 
 -- item that was purchased first by the customer after they became a member
-select s.customer_id,min(m.join_date)as join_date,k.product_name
-from sales s
-join members m
-on s.customer_id=m.customer_id
-join menu k 
-on s.product_id=k.product_id
-group by s.customer_id,k.product_name
-having join_date=(select min(join_date) 
-from members
-where customer_id=s.customer_id)
-order by s.customer_id
-;
+WITH first_item AS
+(
+  Select s.customer_id, m.product_name, s.order_date, e.join_date,
+  DENSE_RANK() OVER (PARTITION BY s.customer_id ORDER BY s.order_date) AS ranked
+  From sales s
+  Join menu m
+    ON m.product_id = s.product_id
+  Join members e
+    ON s.customer_id = e.customer_id
+	Where s.order_date >= e.join_date
+	)
+Select customer_id, product_name
+From first_item
+Where ranked = '1';
 
 -- item that was purchased just before the customer became a member
-select s.customer_id, n.product_name 
-from sales s 
-join members m on s.customer_id = m.customer_id 
-join menu n on s.product_id = n.product_id 
-where s.order_date = (
-   select max(order_date) 
-   from sales 
-   where customer_id = s.customer_id and order_date < m.join_date
-) 
-limit 0, 1000;
+WITH before_membership AS
+(
+  Select s.customer_id, m.product_name, s.order_date, e.join_date,
+  DENSE_RANK() OVER (PARTITION BY s.customer_id ORDER BY s.order_date) AS ranked
+  From sales s
+  Join menu m
+    ON m.product_id = s.product_id
+  Join members e
+    ON s.customer_id = e.customer_id
+	Where s.order_date < e.join_date
+	)
+Select customer_id, product_name
+From before_membership
+Where ranked = '1';
 
 -- total items and amount spent for each member before they became a member?
 select s.customer_id, count(*) AS total_items, sum(m.product_price) as total_amount
