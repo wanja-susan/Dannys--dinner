@@ -203,4 +203,4 @@ having s.customer_id in ('A', 'B');`
 
 
 
-# THANKYOU FOR MAKING IT TO THIS POINT. FELL FREE TO MAKE CORRECTIONS WHERE NECESSARY.
+- Thankyou for making it to this point. Feel free to make changes where necessary.
